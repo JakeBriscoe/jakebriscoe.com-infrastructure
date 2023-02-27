@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - image: docker.io/jakebriscoe/jakebriscoe.com:main
-          name: guestbook-ui
+          name: hello-world
           ports:
             - containerPort: 80
