@@ -14,7 +14,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-        - image: jakebriscoe/jakebriscoe.com:main
+        - image: jakebriscoe/jakebriscoe.com:v0.2.0
           name: hello-world
           ports:
             - containerPort: 8080
