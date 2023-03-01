@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: guestbook-ui
+  name: jakebriscoe
+  namespace: default
 spec:
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: guestbook-ui
-  type: LoadBalancer
+    app: jakebriscoe.com
+  type: NodePort

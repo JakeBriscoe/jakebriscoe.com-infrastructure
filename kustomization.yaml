@@ -1,7 +1,12 @@
-namePrefix: kustomize-
-
-resources:
-  - guestbook-ui-deployment.yaml
-  - guestbook-ui-service.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: argocd
+
+resources:
+  - namespace.yaml
+  - ingress.yaml
+  - application.yaml
+  - deployment.yaml
+  - service.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
