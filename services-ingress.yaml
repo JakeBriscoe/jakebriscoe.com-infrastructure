@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: services-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  rules:
+    - host: jakebriscoe.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jakebriscoe
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - jakebriscoe.com
+      secretName: letsencrypt

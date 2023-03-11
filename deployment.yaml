@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   replicas: 1
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: jakebriscoe.com
@@ -19,3 +19,7 @@ spec:
           name: jakebriscoe
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: "/"

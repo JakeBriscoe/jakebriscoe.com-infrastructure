@@ -2,27 +2,27 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server-ingress
-  namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   rules:
     - host: argocd.jakebriscoe.com
       http:
         paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service: 
-              name: argocd-server
-              port:
-                name: https
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  name: https
   tls:
     - hosts:
         - argocd.jakebriscoe.com
-      secretName: argocd-secret
+      secretName: letsencrypt
