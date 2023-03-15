@@ -9,7 +9,7 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: 432briscoe@gmail.com
     privateKeySecretRef:
-      name: letsencrypt
+      name: letsencrypt-secret-argocd-server
     solvers:
       - http01:
           ingress:

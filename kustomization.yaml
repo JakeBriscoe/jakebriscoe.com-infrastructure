@@ -5,9 +5,10 @@ resources:
   - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
   - https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-  - certificate-issuer.yaml
-  - argocd-server-ingress.yaml
-  - services-ingress.yaml
+  - certificate-issuer-services.yaml
+  - certificate-issuer-argocd-server.yaml
+  - ingress-services.yaml
+  - ingress-argocd-server.yaml
   - application.yaml
   - deployment.yaml
   - service.yaml
