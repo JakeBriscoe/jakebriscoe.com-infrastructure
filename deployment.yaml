@@ -15,7 +15,7 @@ spec:
         app: jakebriscoe.com
     spec:
       containers:
-        - image: jakebriscoe/spotify-content-service:v0.7.0
+        - image: jakebriscoe/spotify-content-service:v0.32.0
           name: jakebriscoe
           ports:
             - containerPort: 8080
