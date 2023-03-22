@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service
+spec:
+  template:
+    spec:
+      containers:
+        - name: service
+          image: service-image:latest
+          ports:
+            - containerPort: 8080
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthz
+          #     port: 8080

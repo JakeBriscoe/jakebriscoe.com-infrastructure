@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: service
+          image: jakebriscoe/spotify-content-service:v0.32.0
