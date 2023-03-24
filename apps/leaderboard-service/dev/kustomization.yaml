@@ -4,12 +4,12 @@ kind: Kustomization
 namespace: dev
 
 commonLabels:
-  app: content-service
+  app: leaderboard-service
 
 resources:
   - ../../base/
 
-namePrefix: content-
+namePrefix: leaderboard-
 
 patchesStrategicMerge:
   - deployment.yaml
