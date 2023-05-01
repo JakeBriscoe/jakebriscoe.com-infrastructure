@@ -8,6 +8,7 @@ resources:
   # - https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
   # - certificate-issuer-services.yaml
   # - certificate-issuer-argocd-server.yaml
+  - namespace.yaml
   - ingress.yaml
   # - ingress-argocd-server.yaml
   - ../../content-service/dev/
@@ -15,7 +16,7 @@ resources:
   - ../../leaderboard-service/dev/
   - ../../user-service/dev/
   - ../../web-client/dev/
-  - namespace.yaml
+  - ../../postgres/dev/
 # patches:
 #   - target:
 #       kind: Role
