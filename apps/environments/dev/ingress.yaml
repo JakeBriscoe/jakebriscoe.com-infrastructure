@@ -9,33 +9,34 @@ metadata:
     # kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     argocd.argoproj.io/sync-wave: "2"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
     # - host: jakebriscoe.com
     - http:
         paths:
-          - path: /content-service
+          - path: /content-service(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: content-service
                 port:
                   name: http
-          - path: /game-service
+          - path: /game-service(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: game-service
                 port:
                   name: http
-          - path: /leaderboard-service
+          - path: /leaderboard-service(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: leaderboard-service
                 port:
                   name: http
-          - path: /user-service
+          - path: /user-service(/|$)(.*)
             pathType: Prefix
             backend:
               service:
